@@ -14,4 +14,6 @@ def register_user(request):
     )
 
     serializer = TelegramUserSerializer(user)
+    if created:
+        return Response(serializer.data, status=201)
     return Response(serializer.data)
